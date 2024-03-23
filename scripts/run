@@ -1,0 +1,6 @@
+#!/bin/sh
+
+textfile=./output/prompts.txt
+
+echo "=========" >> $textfile
+python -m app "$1" | tee -a $textfile
