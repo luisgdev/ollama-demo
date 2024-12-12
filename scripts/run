@@ -1,6 +1,8 @@
 #!/bin/sh
 
-textfile=./output/prompts.txt
-
-echo "=========" >> $textfile
+# shellcheck disable=SC1035
+var=$(!:p)
+textfile=./output/prompt-$(date +%s).txt
+echo Prompt: $var >> $textfile
+echo ========= >> $textfile
 python -m app "$1" | tee -a $textfile
